@@ -6,11 +6,10 @@ const nextConfig = {
      
       "localhost",
       "images.pexels.com",
-      "images.unsplash.com",
+      
       "gorgeous-nature-b643a8bf9d.media.strapiapp.com",
 
     ],
   },
 }
-
 module.exports = nextConfig
