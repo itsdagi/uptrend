@@ -3,8 +3,9 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
-      'localhost',
-      "gorgeous-nature-b643a8bf9d.media.strapiapp.com"
+     
+      
+      "gorgeous-nature-b643a8bf9d.media.strapiapp.com/"
 
     ],
   },

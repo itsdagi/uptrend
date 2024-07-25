@@ -20,7 +20,7 @@ export default function Layout({ title, keywords, description, children }) {
 }
 
 Layout.defaultProps = {
-  title: "upTrend | Find your dream home",
+  title: "UpTrend | Find your dream home",
   description: "Property Listing NEXT.JS, Strapi app",
   keywords: "uptrend real estate",
 };
