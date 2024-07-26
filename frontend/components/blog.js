@@ -6,6 +6,10 @@ import 'moment-timezone';
 const Blog = ({ blogs }) => {
   const { image, title, subtitle, date, slug } = blogs?.attributes;
 
+  // Determine if the image URL is already absolute
+  const imageUrl = image?.data?.attributes?.url;
+  const isAbsoluteUrl = imageUrl && (imageUrl.startsWith('http') || imageUrl.startsWith('https'));
+
   return (
     <div className="col-md-6 col-lg-4 mb-4">
       <div className="blog__item">
@@ -13,11 +17,13 @@ const Blog = ({ blogs }) => {
           <img
             className="img-fluid"
             src={
-              image?.data !== null
-                ? `{image?.data?.attributes.url}`
+              imageUrl
+                ? isAbsoluteUrl
+                  ? imageUrl
+                  : `${API_URL}${imageUrl}`
                 : "/images/404.jpg"
             }
-            alt=""
+            alt={title || "Blog Image"}
           />
         </div>
         <div className="blog__item__info">
