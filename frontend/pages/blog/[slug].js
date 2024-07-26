@@ -19,8 +19,11 @@ import 'moment-timezone';
 
 const SingleBlog = ({ blogs, slug }) => {
   const blog = blogs?.filter((data) => data?.attributes.slug === slug);
-  const { title, image, subtitle, description, date, user } =
-    blog[0]?.attributes;
+  const { title, image, subtitle, description, date, user } = blog[0]?.attributes;
+
+  // Determine if the image URL is already absolute
+  const imageUrl = image?.data?.attributes?.url;
+  const isAbsoluteUrl = imageUrl && (imageUrl.startsWith('http') || imageUrl.startsWith('https'));
 
   return (
     <Layout title={title}>
@@ -31,7 +34,13 @@ const SingleBlog = ({ blogs, slug }) => {
             <div className="col-lg-8 offset-lg-4 mx-auto">
               <div className="image">
                 <img
-                  src={`${API_URL}${image?.data?.attributes.url}`}
+                  src={
+                    imageUrl
+                      ? isAbsoluteUrl
+                        ? imageUrl
+                        : `${API_URL}${imageUrl}`
+                      : "/images/404.jpg"
+                  }
                   className="img-fluid"
                   alt={title}
                 />
@@ -78,7 +87,10 @@ const SingleBlog = ({ blogs, slug }) => {
                       </a>
                     </li>
                     <li>
-                      <a target="_blank" href={`https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Freala-next-js-zyly.vercel.app%2Fblog%2F${slug}%2F&title=${title}`}>
+                      <a
+                        target="_blank"
+                        href={`https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Freala-next-js-zyly.vercel.app%2Fblog%2F${slug}%2F&title=${title}`}
+                      >
                         <FaLinkedinIn /> Share
                       </a>
                     </li>
