@@ -25,7 +25,7 @@ const Blogs = ({ blogs }) => {
         <div className="container">
           <div className="row justify-content-center">
             {blogData === null || undefined || 0 ? (
-              <span className="error">uptrend Blogs Not Pound</span>
+              <span className="error">Uptrend Blogs Not Pound</span>
             ) : (
               blogData?.map((blogs) => <Blog blogs={blogs} key={blogs.id} />)
             )}
@@ -48,7 +48,7 @@ const Blogs = ({ blogs }) => {
 export default Blogs;
 
 export async function getStaticProps() {
-  const res = await fetch(`${API_URL}/api/blogs?populate=*`);
+  const res = await fetch(`${API_URL} && ${image}/api/blogs?populate=*`);
   const blogs = await res.json();
 
   return {
