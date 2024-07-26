@@ -14,7 +14,7 @@ const Blog = ({ blogs }) => {
             className="img-fluid"
             src={
               image?.data !== null
-                ? `${API_URL}${image?.data?.attributes.url}`
+                ? `{image?.data?.attributes.url}`
                 : "/images/404.jpg"
             }
             alt=""
