@@ -15,8 +15,7 @@ const WhyChooseUs = () => {
               <SectionTitle title="Why Choose UpTrend" position="left" />
               <p className="fs-4">keep calm, and Up Trend with us.</p>
               <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                Voluptatem distinctio illum iure deserunt eum mollitia.
+              We will redefine the standards of real estate development and management in the Ethiopia
               </p>
               <img
                 src="images/wChoose2.jpg"

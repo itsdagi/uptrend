@@ -26,7 +26,7 @@ const Hero = () => {
           <div className="col-lg-6">
             <h1 className="display-3">Find your dream home now</h1>
             <h3 className="mb-5 fs-5">
-              We helps people to getting home and renting with good price
+              We help people to get houses for sell and renting with good price
             </h3>
             <Tabs
               id="controlled-tab-example-hero"
