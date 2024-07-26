@@ -25,7 +25,7 @@ const Blogs = ({ blogs }) => {
         <div className="container">
           <div className="row justify-content-center">
             {blogData === null || undefined || 0 ? (
-              <span className="error">Reala Blogs Not Pound</span>
+              <span className="error">uptrend Blogs Not Pound</span>
             ) : (
               blogData?.map((blogs) => <Blog blogs={blogs} key={blogs.id} />)
             )}

@@ -33,14 +33,15 @@ const AllProperty = ({ property }) => {
 
   const [key, setKey] = useState("all");
 
-  const propertyRent = data?.filter(
-    (property) =>
-      property.attributes.categories.data[0]?.attributes.categoryname === "rent"
-  );
   const propertySale = data?.filter(
     (property) =>
       property.attributes.categories.data[0]?.attributes.categoryname === "sale"
   );
+  const propertyRent = data?.filter(
+    (property) =>
+      property.attributes.categories.data[0]?.attributes.categoryname === "rent"
+  );
+ 
 
   // Pagination
   const [currentPage, setCurrentPage] = useState(1);
