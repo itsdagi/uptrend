@@ -4,6 +4,10 @@ import { API_URL } from "../config";
 const RelatedBlog = ({ blog }) => {
   const { image, title, subtitle, date, slug } = blog?.attributes;
 
+  // Determine if the image URL is already absolute
+  const imageUrl = image?.data?.attributes?.url;
+  const isAbsoluteUrl = imageUrl && (imageUrl.startsWith('http') || imageUrl.startsWith('https'));
+
   return (
     <div className="col-md-6 mb-4 mb-md-0">
       <div className="blog__item">
@@ -11,11 +15,13 @@ const RelatedBlog = ({ blog }) => {
           <img
             className="img-fluid"
             src={
-              image?.data !== null
-                ? `${API_URL}${image?.data?.attributes.url}`
+              imageUrl
+                ? isAbsoluteUrl
+                  ? imageUrl
+                  : `${API_URL}${imageUrl}`
                 : "/images/404.jpg"
             }
-            alt=""
+            alt={title || "Blog Image"}
           />
         </div>
         <div className="blog__item__info">

@@ -19,6 +19,11 @@ const PropertyCard = ({ property }) => {
     baths,
     propertyType,
   } = property?.attributes;
+
+  // Determine if the image URL is already absolute
+  const imageUrl = image?.data?.[0]?.attributes?.url;
+  const isAbsoluteUrl = imageUrl && (imageUrl.startsWith('http') || imageUrl.startsWith('https'));
+
   return (
     <div className="col-md-6 col-lg-4 mb-4 property">
       <div className="featured-list__item">
@@ -26,13 +31,15 @@ const PropertyCard = ({ property }) => {
           <img
             className="img-fluid"
             src={
-              image?.data !== null
-                ? `${API_URL}${image?.data[0]?.attributes.url}`
+              imageUrl
+                ? isAbsoluteUrl
+                  ? imageUrl
+                  : `${API_URL}${imageUrl}`
                 : "/images/404.jpg"
             }
-            alt={title}
+            alt={title || "Property Image"}
           />
-          {propertyType !== null && (
+          {propertyType && (
             <div className="popular">{propertyType}</div>
           )}
           <div className="price">${price} / month</div>
@@ -60,7 +67,7 @@ const PropertyCard = ({ property }) => {
               <GoLocation /> {location}
             </li>
             <li>
-              <MdCall /> <a href={`tel${phone}`}>{phone}</a>
+              <MdCall /> <a href={`tel:${phone}`}>{phone}</a>
             </li>
           </ul>
           <ul className="featured-list__item__info--expert">

@@ -51,6 +51,9 @@ const PropertyPage = ({ properties, slug }) => {
       categories?.data[0]?.attributes.categoryname
   );
 
+  // Determine if the image URL is already absolute
+  const isAbsoluteUrl = (url) => url && (url.startsWith('http') || url.startsWith('https'));
+
   return (
     <Layout title={title}>
       {property === null ? (
@@ -59,7 +62,7 @@ const PropertyPage = ({ properties, slug }) => {
         </div>
       ) : (
         <div className="single-page">
-          <div className="rwo">
+          <div className="row">
             <div className="col-12">
               <Swiper
                 className="single-page__swiper"
@@ -87,7 +90,11 @@ const PropertyPage = ({ properties, slug }) => {
                   <SwiperSlide key={images.id}>
                     <img
                       className="img-fluid"
-                      src={`${API_URL}${images.attributes.url}`}
+                      src={
+                        isAbsoluteUrl(images.attributes.url)
+                          ? images.attributes.url
+                          : `${API_URL}${images.attributes.url}`
+                      }
                       alt={title}
                     />
                   </SwiperSlide>
