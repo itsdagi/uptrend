@@ -39,7 +39,7 @@
     margin-left: auto;
     margin-right: 0;
     border-radius: 50px 50px 50px 50px;
-    border: 2px solid orangered;
+    border: 2px solid $color-secondary;
     box-shadow: 2px black;
     margin-top: 80px;
     position: relative;
@@ -104,7 +104,7 @@
       }
     }
     button {
-      background-color: orangered;
+      background-color: $color-secondary;
       border: none;
       height: 100%;
       padding: 15px 25px;
@@ -120,7 +120,7 @@
         padding: 10px 20px;
       }
       &:hover {
-        background-color: rgba(149, 59, 32, 0.881);
+        background-color: rgba(209, 200, 31, 0.881);
       }
     }
   }
