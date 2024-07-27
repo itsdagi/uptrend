@@ -10,7 +10,7 @@ const Testimonial = () => {
   return (
     <div className="testimonial section-padding section-bg">
       <div className="container">
-        <SectionTitle title="What people said about Reala" />
+        <SectionTitle title="What people said about UpTrend" />
         <div className="rwo">
           <div className="col-12">
             <Swiper
